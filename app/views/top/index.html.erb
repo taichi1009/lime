@@ -1,0 +1,23 @@
+<h1>Lime</h1>
+<p>Welcome to our top page</p>
+<div><%= @rand %></div>
+
+<div class="contents row">
+  <%= form_tag('/limes', method: :post) do %>
+    <h3>
+      投稿する
+    </h3>
+    <input placeholder="name" type="text" name="name">
+    <input placeholder="title" type="text" name="title">
+    <input placeholder="Image Url" type="text" name="image">
+    <textarea cols="30" name="content" placeholder="content" rows="10"></textarea>
+    <input type="submit" value="SENT">
+  <% end %>
+</div>
+
+<% @notes.each do |note| %>
+  <h2><%= note.title %></h2>
+  <p><%= note.content %></p>
+  <div><%= note.name %></div>
+  <% end %>
+<%= paginate(@notes2) %>
